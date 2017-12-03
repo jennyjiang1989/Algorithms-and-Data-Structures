@@ -19,7 +19,7 @@ public class Triangle {
 		}
 		//top down
 		for(int i=1;i<n;i++){
-			for(int j=1;j<n;j++){
+			for(int j=1;j<i;j++){
 				f[i][j]=Math.min(f[i-1][j-1],f[i-1][j])+triangle[i][j];
 			}
 		}
