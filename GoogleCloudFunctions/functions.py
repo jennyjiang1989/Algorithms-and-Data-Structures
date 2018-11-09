@@ -98,4 +98,43 @@ def hello_world(request):
         subscriber.acknowledge(subscription_path, [ack_id])
         return ack_id
 
+Subscribe
+
+# Function dependencies, for example:
+# package>=version
+google-cloud-pubsub==0.38.0
+google-cloud-kms==0.2.0
+
+from google.cloud import pubsub_v1
+from google.cloud import kms_v1
+from flask import request
+
+project_id ='smooth-concept-218220'
+location = 'global'
+topic_name = 'connectionNameRequest'
+subscription_name = 'pushRequests'
+
+def subscribe(request):
+    
+    request_json = request.get_json()
+    customerKey = request.headers.get("secret")
+    keyring = request_json['connectionName']
+    endpoint = request_json['callbackEndpoint']
+    
+    client = kms_v1.KeyManagementServiceClient()
+    parent = client.key_ring_path(project_id, location, keyring)
+    resp = client.list_crypto_keys(parent)
+    KMSkeys=[]
+    for key in resp:
+        KMSkeys.append(key.name.split('/')[-1])
+    if not customerKey in KMSkeys:
+        return ('',403)
+    else:
+        subscriber = pubsub_v1.SubscriberClient()
+        topic_path = subscriber.topic_path(project_id, topic_name)
+        subscription_path = subscriber.subscription_path(project_id, subscription_name)
+        push_config = pubsub_v1.types.PushConfig(push_endpoint=endpoint)
+        subscription = subscriber.create_subscription(subscription_path, topic_path, push_config)
+
+
 
