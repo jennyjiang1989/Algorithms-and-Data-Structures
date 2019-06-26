@@ -14,3 +14,4 @@ public class ReverseLinkedList {
 		}
 		return prev;//此时curr=null		
 	}
+}
