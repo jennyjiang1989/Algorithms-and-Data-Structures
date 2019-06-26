@@ -21,12 +21,12 @@ public class MergeKSortedLists {
       }
       int mid=start+(end-start)/2;
       ListNode left=helper(lists,start,mid);
-      ListNode right=helper(lists.mid+1;end);
+      ListNode right=helper(lists,mid+1,end);
       return mergeTwoLists(left,right);
    }
    private ListNode mergeTwoLists(ListNode list1,ListNode list2){
       ListNode dummy=new ListNode(0);
-      ListNode node=dummmy;
+      ListNode node=dummmy;//node is for the merged list
       while(list1!=null && list2!=null){
          if(list1.val<list2.val){
             node.next=list1;
@@ -45,5 +45,33 @@ public class MergeKSortedLists {
          node.next=list2;
       }
       return dummy.next;
+   }
+   //Heap
+   private Comparator<ListNode> listNodeComparator=new Comparator<ListNode>(){
+      public int compare(ListNode n1, ListNode n2){
+         return n1.val-n2.val;
+      };
+      public ListNode merge2(List<ListNode> lists){
+		if(lists==null||lists.size()==0){
+			return null;
+		}
+		Queue<ListNode> heap=new PriorityQueue<>(lists.size(),listNodeComparator);//两个参数 最小堆
+		for(int i=0;i<lists.size();i++){
+			if(lists.get(i)!=null){
+				heap.add(lists.get(i));
+			}
+		}
+		ListNode dummy=new ListNode(0);
+		ListNode n=dummy;//用于移动
+		while(!heap.isEmpty()){
+			ListNode head=heap.poll();
+			n.next=head;
+			n=n.next;
+			//下一个丢进去
+			if(head.next!=null){
+				heap.add(head.next);
+			}
+		}
+		return dummy.next;
    }
 }
