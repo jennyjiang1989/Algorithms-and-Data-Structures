@@ -30,5 +30,4 @@ public class Rehashing {
         }
         return newTable;
     }
-
 }
