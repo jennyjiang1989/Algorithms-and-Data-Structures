@@ -1,7 +1,7 @@
 //Write a Java program to check whether a given number is an ugly number.
 //In number system, ugly numbers are positive numbers whose only prime factors are 2, 3 or 5. First 10 ugly numbers are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12. By convention, 1 is included.
 
-SLOW: 
+//SLOW
 public class Solution {
     /**
      * @param num: An integer
@@ -24,7 +24,7 @@ public class Solution {
     }
 }
 
-QUICKER:
+//QUICKER
 public class Solution {
     /**
      * @param num: An integer
