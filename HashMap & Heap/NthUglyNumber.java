@@ -7,7 +7,6 @@ public class Solution {
      * @return: return a  integer as description.
      */
     public int nthUglyNumber(int n) {
-        // write your code here
         PriorityQueue<Long> pq=new PriorityQueue<>();
         HashSet<Long> set=new HashSet<>();
         long[] primes=new long[3];
@@ -19,11 +18,12 @@ public class Solution {
             pq.add(primes[i]);
             set.add(primes[i]);
         }
+    
         long number=(long)1;
         for(int i=1;i<n;i++){
             number=pq.poll();
             for(int j=0;j<3;j++){
-                long newNumber=number*primes[j];
+                long newNumber=primes[j]*number;
                 if(!set.contains(newNumber)){
                     pq.add(newNumber);
                     set.add(newNumber);
