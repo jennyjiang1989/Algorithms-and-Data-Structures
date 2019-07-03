@@ -1,22 +1,25 @@
-import java.util.*;
-public class TopKLargestNumbers {
-	public int[] topk(int[] nums, int k) {
-        PriorityQueue<Integer> pq=new PriorityQueue<>();
+public class Solution {
+    /**
+     * @param nums: an integer array
+     * @param k: An integer
+     * @return: the top k largest numbers in array
+     */
+    public int[] topk(int[] nums, int k) {
+        // write your code here
+        PriorityQueue<Integer> pq=new PriorityQueue<>(k);
+        int[] topK=new int[k];
         for(int i=0;i<nums.length;i++){
             if(pq.size()<k){
                 pq.add(nums[i]);
             }else{
-                if(pq.peek()<nums[i]){
-                    pq.poll();
-                    pq.add(nums[i]);
-                }
+                pq.poll();
+                pq.add(nums[i]);
             }
         }
-        int[] ans=new int[k];
-        for(int i=k-1;i>=0;i--){
-            ans[i]=pq.poll();
+        for(int i=0;i<k;i++){
+            topK[k-i-1]=pq.poll();
         }
-        return ans;
-        //if return kth largest element, just return pq.poll();
+        return topK;
     }
 }
+
