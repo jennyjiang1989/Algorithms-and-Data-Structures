@@ -47,6 +47,10 @@ public class Solution {
                 }
             }
         }
-        return result;
+        //判断拓扑排序是否存在
+        if(result.size()==graph.size()){
+            return result;
+        }
+        return null;
     }
 }
