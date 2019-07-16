@@ -1,6 +1,6 @@
 //Given a undirected graph, a node and a target, return the nearest node to the given node which value of it is target
 //return NULL if you can't find
-//followup: 找所有离target最近的点
+//followup: 找所有离target最近的点 - 层级遍历
 public class SearchGraphNodes {
 	//graph: a list of Undirected graph node
   //values: a hash mapping
