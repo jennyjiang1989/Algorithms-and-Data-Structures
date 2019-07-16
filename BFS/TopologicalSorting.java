@@ -51,6 +51,7 @@ public class Solution {
         if(result.size()==graph.size()){
             return result;
         }
+        //有环状依赖
         return null;
     }
 }
