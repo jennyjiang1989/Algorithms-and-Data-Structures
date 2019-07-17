@@ -9,8 +9,8 @@ class Solution {
             graph[i] = new ArrayList();
             
         for(int i=0; i<prerequisites.length;i++){
-            degree[prerequisites[i][1]]++;
-            graph[prerequisites[i][0]].add(prerequisites[i][1]);
+            degree[prerequisites[i][0]]++;
+            graph[prerequisites[i][1]].add(prerequisites[i][0]);
         }
         for(int i=0; i<degree.length;i++){
             if(degree[i] == 0){
@@ -18,9 +18,8 @@ class Solution {
                 count++;
             }
         }
-        
         while(queue.size() != 0){
-            int course = (int)queue.poll();
+            int course = queue.poll();
             for(int i=0; i<graph[course].size();i++){
                 int pointer = (int)graph[course].get(i);
                 degree[pointer]--;
@@ -35,5 +34,4 @@ class Solution {
         else    
             return false;
     }
-    
 }
