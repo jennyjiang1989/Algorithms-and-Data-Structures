@@ -2,7 +2,7 @@ class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         ArrayList[] graph = new ArrayList[numCourses];
         int[] degree = new int[numCourses];
-        Queue queue = new LinkedList();
+        Queue<Integer> queue = new LinkedList<>();
         int count=0;
         
         for(int i=0;i<numCourses;i++)
