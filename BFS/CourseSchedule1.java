@@ -1,6 +1,6 @@
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-                ArrayList[] graph = new ArrayList[numCourses];
+        ArrayList[] graph = new ArrayList[numCourses];
         int[] degree = new int[numCourses];
         Queue queue = new LinkedList();
         int count=0;
