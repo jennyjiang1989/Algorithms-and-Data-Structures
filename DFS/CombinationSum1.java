@@ -26,7 +26,7 @@ class Solution {
                 break;
             }
             subset.add(candidates[i]);
-            helper(subset,i,candidates,remainTarget-candidates[i],results);
+            helper(subset,i,candidates,remainTarget-candidates[i],results);//i, not i+1: The same repeated number may be chosen from candidates unlimited number of times
             subset.remove(subset.size()-1);
         }
     }
