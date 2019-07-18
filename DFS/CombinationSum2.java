@@ -1,7 +1,7 @@
 //Given a collection of candidate numbers (candidates) and a target number (target), 
 //find all unique combinations in candidates where the candidate numbers sums to target.
 //Each number in candidates may only be used once in the combination.
-//Input: candidates = [10,1,2,7,6,1,5], target = 8,
+//Input: candidates = [10,1,2,7,6,1,5], target = 8, (数组本身有重复！)
 A solution set is:
 [
   [1, 7],
