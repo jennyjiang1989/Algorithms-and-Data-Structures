@@ -13,7 +13,7 @@ class Solution {
         helper(subset,0,candidates,target,results);
         return results;
     }
-    //1. 递归的定义 找到所有subset开头的组合，后面部分的和是target
+    //1. 递归的定义 找到所有subset开头的组合，后面部分的和是remainTarget
     private void helper(ArrayList<Integer> subset, int startIndex, int[] candidates, int remainTarget, List<List<Integer>> results){
         //3. 递归的出口
         if(remainTarget==0){
