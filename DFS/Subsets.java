@@ -15,7 +15,8 @@ class Solution {
     }
     //1. 递归的定义：在nums中找到所有以subset开头的集合，并放到results
     private void helper(ArrayList<Integer> subset, int[] nums, int startIndex, List<List<Integer>> results){
-        results.add(new ArrayList<Integer>(subset));
+        //wrong: results.add(subset);
+        results.add(new ArrayList<Integer>(subset));//deep copy 
         for(int i=startIndex;i<nums.length;i++){
             //[1]->[1,2]
             subset.add(nums[i]);
