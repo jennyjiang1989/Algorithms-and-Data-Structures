@@ -30,11 +30,12 @@ class Solution {
             if(remainTarget<candidates[i]){
                 break;
             }
+            //去重 数组本省有重复元素
             if(i!=startIndex&&candidates[i]==candidates[i-1]){
                 continue;
             }
             subset.add(candidates[i]);
-            helper(subset,candidates,i+1,remainTarget-candidates[i],results);
+            helper(subset,candidates,i+1,remainTarget-candidates[i],results);//i+1, not i: Each number in candidates may only be used once in the combination.
             subset.remove(subset.size()-1);
         }
     }
