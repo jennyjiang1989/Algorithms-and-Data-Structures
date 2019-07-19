@@ -16,7 +16,7 @@ class Solution {
             for(int j=0;j<m;j++){
                 if(grid[i][j]=='1'){
                     markByBFS(grid,i,j);
-                    islands++;
+                    islands++;//进行了几次BFS,就是几个Island
                 }
             }
         }
