@@ -1,4 +1,5 @@
 //Given a set of distinct integers, nums, return all possible subsets (the power set).
+//深度优先搜索的空间耗费跟深度有关 宽度优先搜索的空间耗费跟宽度有关
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> results=new ArrayList<>();
