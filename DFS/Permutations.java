@@ -20,7 +20,7 @@ class Solution {
             }
             list.add(nums[i]);
             helper(list,nums,results);
-            list.remove(list.size()-1);
+            list.remove(list.size()-1);//参数是下标
         }
     }
 }
