@@ -1,5 +1,11 @@
 //Given a string s, partition s such that every substring of the partition is a palindrome.
 //Return all possible palindrome partitioning of s.
+Input: "aab"
+Output:
+[
+  ["aa","b"],
+  ["a","a","b"]
+]
 "abc" - "a1b2c"
 a b c -> [1,2]
 a bc -> [1]
