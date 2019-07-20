@@ -4,3 +4,5 @@ LinkedList 随机索引
 ListNode node1=new ListNode(1);//node1占4个字节 一个ListNode占8个字节（前4个字节存1，后4个字节存next）
 ListNode head=node1; //head记录的是node1所在的内存空间的地址(reference) 并没有存储实际的内容(1)
 //main函数结束后 head node1就被回收
+
+一般不会使用递归 使用递归的条件是深度不可以太深 但是链表深度为链表长度
