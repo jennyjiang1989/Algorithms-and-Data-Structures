@@ -1,0 +1,4 @@
+ArrayList 顺序索引 （根据存的东西占几个字节）
+LinkedList 随机索引
+ListNode node1=new ListNode(1);//node1占4个字节 一个ListNode占8个字节（前4个字节存1，后4个字节存next）
+ListNode head=node1; //head记录的是node1所在的内存空间的地址(reference) 并没有存储实际的内容(1)
