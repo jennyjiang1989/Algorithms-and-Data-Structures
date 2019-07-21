@@ -49,7 +49,7 @@ class Solution {
             prev1=curr;
             curr=temp;
         }
-        
+        //connect
         prev.next=nk;
         n1.next=nkplus;
         return n1;    
