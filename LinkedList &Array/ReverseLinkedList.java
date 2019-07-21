@@ -1,5 +1,14 @@
 //   1->2->3->4->N
 //N<-1<-2<-3<-4
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
 public class ReverseLinkedList {
 	public ListNode reverse(ListNode head){
 		//删除节点的时候也需要prev指针跟curr指针
