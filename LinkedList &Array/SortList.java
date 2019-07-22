@@ -13,9 +13,9 @@ class Solution {
             return head;
         }
         ListNode mid=findMiddle(head);
-        ListNode right=sortList(mid.next);//递归
+        ListNode right=sortList(mid.next);//递归 Merge Sort
         mid.next=null;
-        ListNode left=sortList(head);//递归
+        ListNode left=sortList(head);//递归 Merge Sort
         return merge(left,right);
     }
     private ListNode findMiddle(ListNode head){
