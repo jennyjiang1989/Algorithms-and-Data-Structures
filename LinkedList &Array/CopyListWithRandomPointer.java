@@ -1,4 +1,4 @@
-
+1 `
 // Definition for a Node.
 class Node {
     public int val;
@@ -13,6 +13,7 @@ class Node {
         random = _random;
     }
 };
+//1st implementation
 class Solution {
     public Node copyRandomList(Node head) {
         if(head==null){
@@ -46,4 +47,33 @@ class Solution {
         }
         return dummy.next;
     } 
+//2nd implementation
+class Solution {
+    public Node copyRandomList(Node head) {
+        if(head==null){
+            return null;
+        }
+        HashMap<Node,Node> map=new HashMap<>();
+        Node oldCurr=head;
+        Node dummy=new Node(0);
+        Node newPrev=dummy;
+        while(oldCurr!=null){
+            Node newNode=new Node(oldCurr.val);
+            map.put(oldCurr,newNode);
+            newPrev.next=newNode;
+            newPrev=newNode;
+            oldCurr=oldCurr.next;
+        }
+        Node oldIterator=head;
+        Node newIterator=dummy.next;
+        while(oldIterator!=null){
+            Node oldRandom=oldIterator.random;
+            Node newRandom=map.get(oldRandom);
+            newIterator.random=newRandom;
+            oldIterator=oldIterator.next;
+            newIterator=newIterator.next;
+        }
+        return dummy.next;
+    }
+}
 }
