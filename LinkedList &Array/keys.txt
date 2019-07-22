@@ -6,3 +6,10 @@ ListNode head=node1; //head记录的是node1所在的内存空间的地址(refer
 //main函数结束后 head node1就被回收
 
 一般不会使用递归 使用递归的条件是深度不可以太深 但是链表深度为链表长度
+
+        quick sort, merge sort, heap sort
+time    nlogn       nlogn       nlogn
+space   o(1)        o(n)        o(1)
+
+Arrays.sort(nums)
+Collections.sort(nums)
