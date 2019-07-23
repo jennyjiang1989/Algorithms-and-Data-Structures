@@ -13,3 +13,9 @@ space   o(1)        o(n)        o(1)
 
 Arrays.sort(nums)
 Collections.sort(nums)
+
+子数组Subarray
+PrefixSum[i]=A[0]+A[1]+...+A[i-1], PrefixSum[0]=0
+构造PrefixSum耗费O(n)时间O(n)空间
+计算子数组从下标i到下标j之间的所有数之和：Sum(i~j)=PrefixSum[j+1]-PrefixSum[i]
+
