@@ -34,3 +34,29 @@ class Solution {
         return result;
     }
 }
+//Sort + 2 pointers
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);//先排序
+        Arrays.sort(nums2);
+        int i=0,j=0;
+        ArrayList<Integer> intersection=new ArrayList<>();
+        while(i<nums1.length && j<nums2.length){
+            if(nums1[i]==nums2[j]&&!intersection.contains(nums1[i])){
+                intersection.add(nums1[i]);
+                i++;
+                j++;
+            }else if(nums1[i]<nums2[j]){
+                i++;
+            }else{
+                j++;
+            }
+        }
+        int size=intersection.size();
+        int[] result=new int[size];
+        for(int k=0;k<size;k++){
+            result[k]=intersection.get(k);
+        }
+        return result;
+    }
+}
