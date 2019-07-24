@@ -9,15 +9,14 @@ public class Solution {
         if(nums==null||nums.length==0){
             return;
         }
-        int i=0,j=0;
-        while(j<nums.length){
+        int i=0;
+        for(int j=0;j<nums.length;j++){
             if(nums[j]!=0){
                 int temp=nums[j];
                 nums[j]=nums[i];
                 nums[i]=temp;
                 i++;
             }
-            j++;
         }
     }
 }
