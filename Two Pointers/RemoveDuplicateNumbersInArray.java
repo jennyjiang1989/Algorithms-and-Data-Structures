@@ -1,3 +1,4 @@
+//同向双指针
 //Given an array of integers, remove the duplicate numbers in it.
 public class Solution {
     /**
