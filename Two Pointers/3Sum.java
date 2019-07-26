@@ -48,3 +48,38 @@ public class Solution {
         }
     }
 }
+
+//3 sum closest to target
+//Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. 
+//Return the sum of the three integers.
+public class Solution {
+    /**
+     * @param numbers: Give an array numbers of n integer
+     * @param target: An integer
+     * @return: return the sum of the three integers, the sum closest target.
+     */
+    public int threeSumClosest(int[] numbers, int target) {
+        // write your code here
+        if(numbers==null||numbers.length<3){
+            return 0;
+        }
+        Arrays.sort(numbers);
+        int closestSum=Integer.MAX_VALUE;
+        for(int i=0;i<numbers.length-2;i++){
+            int left=i+1;
+            int right=numbers.length-1;
+            while(left<right){
+                int currentSum=numbers[i]+numbers[left]+numbers[right];
+                if(Math.abs(target-currentSum)<Math.abs(target-closestSum)){
+                    closestSum=currentSum;
+                }
+                if(currentSum<target){
+                    left++;
+                }else{
+                    right--;
+                }
+            }
+        }
+        return closestSum;
+    }
+}
