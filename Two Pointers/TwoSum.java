@@ -123,3 +123,26 @@ public class Solution {
 		return count;
 	}
 }
+
+//Find two integers such that the sum is closest to a target. Return the difference.
+public class Solution {
+	public int twoSumClosest(int[] nums, int target){
+		if(nums==null||nums.length<2){
+			return -1;
+		}
+		Arrays.sort(nums);
+		int i=0,j=nums.length-1;
+		int diff=Integer.MAX_VALUE;
+		while(i<j){
+			if(nums[i]+nums[j]<target){
+				//Note:先计算再移动指针
+				diff=Math.min(diff, target-nums[i]-nums[j]);
+				i++;
+			}else{
+				diff=Math.min(diff, nums[i]+nums[j]-target);
+				j--;
+			}
+		}
+		return diff;
+	}
+}
