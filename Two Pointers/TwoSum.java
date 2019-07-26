@@ -103,6 +103,7 @@ public class Solution {
 }
 
 //Find how many pairs in the array that their sum is less than or equal to target. Return the number of pairs.
+//不用去重 没说Unique
 public class Solution {
 	public int twoSum(int[] nums, int target){
 		if(nums==null||nums.length<2){
