@@ -89,6 +89,7 @@ public class Solution {
                 count++;
                 left++;
                 right--;
+                //去重 unique pair
                 while (left < right && nums[left] == nums[left - 1]) {
                     left++;
                 }
@@ -99,4 +100,25 @@ public class Solution {
         }
         return count;
     }
+}
+
+//Find how many pairs in the array that their sum is less than or equal to target. Return the number of pairs.
+public class Solution {
+	public int twoSum(int[] nums, int target){
+		if(nums==null||nums.length<2){
+			return 0;
+		}
+		Arrays.sort(nums);
+		int count=0;
+		int i=0,j=nums.length-1;
+		while(i<j){
+			if(nums[i]+nums[j]<=target){
+				count=count+j-i;//不是只有一个
+				i++;
+			}else{
+				j--;
+			}
+		}
+		return count;
+	}
 }
