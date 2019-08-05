@@ -31,3 +31,42 @@ public class Solution {
         return i;
     }
 }
+//Quick Sort O(nlogn) - 递归
+public class Solution {
+    /**
+     * @param A: an integer array
+     * @return: nothing
+     */
+    public void sortIntegers2(int[] A) {
+        // write your code here
+        if(A==null||A.length==0){
+            return;
+        }
+        quickSort(A,0,A.length-1);
+    }
+    private void quickSort(int[] A, int start, int end){
+        if(start>=end){
+            return;
+        }
+        int i=start,j=end;
+        int pivot=A[(start+end)/2];
+        while(i<=j){
+            while(i<=j && A[i]<pivot){
+                i++;
+            }
+            while(i<=j && A[j]>pivot){
+                j--;
+            }
+            if(i<=j){
+                int temp=A[i];
+                A[i]=A[j];
+                A[j]=temp;
+                i++;
+                j--;
+            }
+        }
+        //start j i end
+        quickSort(A,start,j);
+        quickSort(A,i,end);
+    }
+}
