@@ -25,7 +25,7 @@ public class Solution {
         helper(root);
         return minRoot;
     }
-    
+    //return以root为根的子树的和
     private int helper(TreeNode root){
         if(root==null){
             return 0;
