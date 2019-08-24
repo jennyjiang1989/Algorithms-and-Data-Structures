@@ -59,3 +59,27 @@ public class Solution {
         return result;
     }
 }
+//遍历
+public class Solution {
+    /**
+     * @param root: A Tree
+     * @return: Preorder in ArrayList which contains node values.
+     */
+    public List<Integer> preorderTraversal(TreeNode root) {
+        // write your code here
+        List<Integer> result=new ArrayList<>();
+        preorder(root,result);
+        return result;
+    }
+    //1.返回值为void 把root为根的preorder加入result里面
+    private void preorder(TreeNode root, List<Integer> result){
+        //3.出口
+        if(root==null){
+            return;
+        }
+        //2.拆解
+        result.add(root.val);
+        preorder(root.left,result);
+        preorder(root.right,result);
+    }
+}
