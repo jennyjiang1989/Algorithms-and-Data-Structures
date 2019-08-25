@@ -27,3 +27,45 @@ public class Solution {
         return null;
     }
 }
+
+//有parent指针
+/**
+ * Definition of ParentTreeNode:
+ * 
+ * class ParentTreeNode {
+ *     public ParentTreeNode parent, left, right;
+ * }
+ */
+public class Solution {
+    /*
+     * @param root: The root of the tree
+     * @param A: node in the tree
+     * @param B: node in the tree
+     * @return: The lowest common ancestor of A and B
+     */
+    public ParentTreeNode lowestCommonAncestorII(ParentTreeNode root, ParentTreeNode A, ParentTreeNode B) {
+        // write your code here
+        ParentTreeNode LCA=null;
+        List<ParentTreeNode> pathA=findPath(A);
+        List<ParentTreeNode> pathB=findPath(B);
+        int indexA=pathA.size()-1;
+        int indexB=pathB.size()-1;
+        while(indexA>=0&&indexB>=0){
+            if(pathA.get(indexA)!=pathB.get(indexB)){
+                break;
+            }
+            LCA=pathA.get(indexA);
+            indexA--;
+            indexB--;
+        }
+        return LCA;
+    }
+    private List<ParentTreeNode> findPath(ParentTreeNode node){
+        List<ParentTreeNode> result=new ArrayList<>();
+        while(node!=null){
+            result.add(node);
+            node=node.parent;
+        }
+        return result;
+    }
+}
