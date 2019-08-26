@@ -21,7 +21,6 @@
  
 class ResultType {
     DoublyListNode first, last;
-    
     public ResultType(DoublyListNode first, DoublyListNode last) {
         this.first = first;
         this.last = last;
@@ -37,7 +36,6 @@ public class Solution {
         if (root == null) {
             return null;
         }
-        
         ResultType result = helper(root);
         return result.first;
     }
@@ -47,11 +45,10 @@ public class Solution {
         if (root == null) {
             return null;
         }
-        
         ResultType left = helper(root.left);
         ResultType right = helper(root.right);
+  
         DoublyListNode node = new DoublyListNode(root.val);
-        
         ResultType result = new ResultType(null, null);
         
         //构造单链表
