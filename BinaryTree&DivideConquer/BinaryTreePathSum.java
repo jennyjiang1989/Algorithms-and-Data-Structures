@@ -26,13 +26,14 @@ public class Solution {
         if(root==null){
             return results;
         }
-        List<Integer> path=new ArrayList<>();
-        path.add(root.val);
+        List<Integer> path=new ArrayList<>();//current path
+        path.add(root.val);//添加root节点
         helper(path,root,root.val,target,results);
         return results;
     }
     //"sum": the sum of each node from root to current node.
     private void helper(List<Integer> path, TreeNode root, int sum, int target, List<List<Integer>> results){
+        //叶子节点
         if(root.left==null&&root.right==null){
             if(sum==target){
                 //wrong: results.add(path);
