@@ -38,6 +38,7 @@ public class Solution {
             }
             results.add(currentLevel);
         }
+        //Collections.reverse(result);如果level by level from leaf to root
         return results;
     }
 }
