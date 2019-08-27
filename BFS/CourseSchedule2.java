@@ -35,7 +35,7 @@ class Solution {
             }
             return result;
         }else{
-            return new int[]{};
+            return new int[0];//empty array with 0 element
         }
     }
 }
