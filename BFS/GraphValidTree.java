@@ -16,6 +16,7 @@ public class Solution {
         if(edges.length!=n-1){
             return false;
         }
+        //邻接表
         HashMap<Integer,Set<Integer>> graph=initializeGraph(n,edges);
         //bfs
         Queue<Integer> queue=new LinkedList<>();
