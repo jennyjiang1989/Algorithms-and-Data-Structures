@@ -24,12 +24,13 @@ class Solution {
         while(!queue.isEmpty()){
             int course = queue.poll();
             order.add(course);
+            //所有的邻居入度减一
             int size=graph[course].size();
             for(int i=0; i<size;i++){
-                int pointer = (int)graph[course].get(i);
-                degree[pointer]--;
-                if(degree[pointer] == 0){
-                    queue.add(pointer);
+                int neighbour = (int)graph[course].get(i);
+                degree[neighbour]--;
+                if(degree[neighbour] == 0){
+                    queue.add(neighbour);
                 }
             }
         }
