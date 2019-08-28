@@ -2,6 +2,8 @@
 //find the shortest path to a destination position, return the length of the route.
 //Return -1 if destination cannot be reached.
 
+//简单图求最短路径
+
 public class Solution {
     int n, m; // size of the chessboard
     int[] deltaX = {1, 1, 2, 2, -1, -1, -2, -2};
