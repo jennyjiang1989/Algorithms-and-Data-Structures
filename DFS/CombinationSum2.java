@@ -30,7 +30,7 @@ class Solution {
             if(remainTarget<candidates[i]){
                 break;
             }
-            //去重 数组本省有重复元素
+            //去重 数组本身有重复元素
             if(i!=startIndex&&candidates[i]==candidates[i-1]){
                 continue;
             }
