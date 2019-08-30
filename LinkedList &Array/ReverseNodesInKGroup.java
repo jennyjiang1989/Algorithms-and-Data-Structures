@@ -32,6 +32,7 @@ class Solution {
             }
             node=node.next;
         }
+        //k-1个 不够k个
         if(node==null){
             return null;
         }
