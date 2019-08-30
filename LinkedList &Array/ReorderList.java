@@ -23,10 +23,11 @@ public class Solution {
         if(head==null||head.next==null){
             return;
         }
-        ListNode mid=findMiddle(head);
-        ListNode newHead=reverse(mid.next);
-        mid.next=null;
-        merge(head,newHead);
+        //1 2 3 4    1 4 2 3
+        ListNode mid=findMiddle(head);//2
+        ListNode newHead=reverse(mid.next);//右list (4,3)
+        mid.next=null;//左list
+        merge(head,newHead);//1 4 2 3
     }
     //1 2 3 4      1 2 3 4 5
     private ListNode findMiddle(ListNode head){
