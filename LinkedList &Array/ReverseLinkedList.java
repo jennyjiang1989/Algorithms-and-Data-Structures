@@ -65,6 +65,7 @@ public class Solution {
         //初始化
         ListNode nNode=mNode;
         ListNode postnNode=mNode.next;
+	//1  2 3 4  null    1  4 3 2  null
         for(int i=m;i<n;i++){
             if(postnNode==null){
                 return null;
