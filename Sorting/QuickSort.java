@@ -20,10 +20,13 @@ public class Solution {
         int pivot=A[start+(end-start)/2];
         int left=start;
         int right=end;
+        //left<=right
         while(left<=right){
+            //A[left]<pivot
             while(left<=right&&A[left]<pivot){
                 left++;
             }
+            //A[right]>pivot
             while(left<=right&&A[right]>pivot){
                 right--;
             }
