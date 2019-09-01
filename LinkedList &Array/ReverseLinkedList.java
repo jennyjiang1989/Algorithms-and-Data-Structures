@@ -76,9 +76,9 @@ public class Solution {
         }//3->2 4->3 prev:4 curr:5
         
         //connect
-        mNode.next=curr;//2连接5
         prevmNode.next=prev;//1连接4
-        
+        mNode.next=curr;//2连接5
+     
         return dummy.next;
     }
 }
