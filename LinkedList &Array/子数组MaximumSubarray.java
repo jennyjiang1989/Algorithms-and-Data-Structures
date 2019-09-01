@@ -1,3 +1,4 @@
+//Given an array of integers, find a contiguous subarray which has the largest sum.
 class Solution {
     public int maxSubArray(int[] nums) {
         if(nums==null||nums.length==0){
