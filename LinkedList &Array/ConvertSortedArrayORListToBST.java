@@ -56,8 +56,6 @@ public class Solution {
  *     }
  * }
  */
-
-
 public class Solution {
     /*
      * @param head: The first node of linked list.
