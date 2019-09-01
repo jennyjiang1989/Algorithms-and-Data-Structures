@@ -58,25 +58,26 @@ public class Solution {
             }
             nodeIterator=nodeIterator.next;
         }//得到mNode的prev node
-        //prev->m->m+1...->n->n+1
-        //prev->n->n-1...->m->n+1
+        
         ListNode prevmNode=nodeIterator;
         ListNode mNode=nodeIterator.next;
-        //初始化
-        ListNode nNode=mNode;
-        ListNode postnNode=mNode.next;
-	//1  2 3 4  null    1  4 3 2  null
+        
+        //初始化prev curr 套用reverse whole linked list
+        ListNode prev=mNode;
+        ListNode curr=mNode.next;
         for(int i=m;i<n;i++){
-            if(postnNode==null){
+            if(curr==null){
                 return null;
             }
-            ListNode temp=postnNode.next;
-            postnNode.next=nNode;
-            nNode=postnNode;
-            postnNode=temp;
-        }
-        mNode.next=postnNode;
-        prevmNode.next=nNode;
+            ListNode temp=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=temp;
+        }//3->2 4->3 prev:4 curr:5
+        
+        //connect
+        mNode.next=curr;//2连接5
+        prevmNode.next=prev;//1连接4
         
         return dummy.next;
     }
