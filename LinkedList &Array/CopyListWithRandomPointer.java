@@ -55,19 +55,22 @@ class Solution {
         if(head==null){
             return null;
         }
-        HashMap<Node,Node> map=new HashMap<>();
-        Node oldCurr=head;
+        HashMap<Node,Node> map=new HashMap<>();//新老节点映射
+        Node oldCurr=head;//用于遍历老节点
         Node dummy=new Node(0);
-        Node newPrev=dummy;
+        Node newPrev=dummy;//用于构建新节点
+        //第一遍遍历只考虑节点本身
         while(oldCurr!=null){
             Node newNode=new Node(oldCurr.val);
             map.put(oldCurr,newNode);
+            //connect
             newPrev.next=newNode;
             newPrev=newNode;
             oldCurr=oldCurr.next;
         }
         Node oldIterator=head;
         Node newIterator=dummy.next;
+        //第二遍遍历考虑random指针
         while(oldIterator!=null){
             Node oldRandom=oldIterator.random;
             Node newRandom=map.get(oldRandom);
