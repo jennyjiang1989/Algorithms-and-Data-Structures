@@ -12,7 +12,6 @@
  *     }
  * }
  */
-
 public class Solution {
     /**
      * @param head: The first node of linked list
@@ -24,22 +23,21 @@ public class Solution {
         if(head==null){
             return null;
         }
-        ListNode dummy1=new ListNode(0);//list1的dummy node
-        ListNode dummy2=new ListNode(0);//list2的dummy node
-        ListNode node=head;//用于遍历
-        ListNode node1=dummy1;//用于遍历
-        ListNode node2=dummy2;//用于遍历
-        while(node!=null){
-            if(node.val<x){
-                node1.next=new ListNode(node.val);
-                node1=node1.next;
-                node=node.next;
+        ListNode dummy1=new ListNode(0);
+        ListNode dummy2=new ListNode(0);
+        ListNode node1=dummy1;
+        ListNode node2=dummy2;
+        while(head!=null){
+            if(head.val<x){
+                node1.next=head;
+                node1=head;
             }else{
-                node2.next=new ListNode(node.val);
-                node2=node2.next;
-                node=node.next;
+                node2.next=head;
+                node2=head;
             }
+            head=head.next;
         }
+        node2.next=null;
         node1.next=dummy2.next;
         return dummy1.next;
     }
