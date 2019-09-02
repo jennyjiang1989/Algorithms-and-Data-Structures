@@ -38,7 +38,8 @@ public class Solution {
             slow=slow.next;
             fast=fast.next.next;
             if(slow==fast){
-                ListNode start=head;//restart from head
+                ListNode start=head;//restart from head   
+                //相遇节点即为the node where the cycle begins
                 while(start!=slow){
                     start=start.next;
                     slow=slow.next;
