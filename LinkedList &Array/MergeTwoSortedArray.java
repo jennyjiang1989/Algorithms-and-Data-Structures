@@ -1,3 +1,4 @@
+//o(n)
 public class Solution {
     /**
      * @param A: sorted integer array A
