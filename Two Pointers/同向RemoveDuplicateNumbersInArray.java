@@ -1,5 +1,5 @@
 //同向双指针
-//Given an array of integers, remove the duplicate numbers in it.
+//Given an array of integers, remove the duplicate numbers in it. Return the total number of the unique numbers.
 public class Solution {
     /**
      * @param nums: an array of integers
