@@ -15,6 +15,7 @@ public class Solution {
         Arrays.sort(S);
         int count=0;
         //1 2 3 4 3
+        //三角形：两边之和大于第三边
         for(int i=2;i<S.length;i++){
             int start=0;
             int end=i-1;
