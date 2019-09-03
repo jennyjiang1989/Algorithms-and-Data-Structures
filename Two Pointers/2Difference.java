@@ -11,6 +11,7 @@ public class Solution {
     public int[] twoSum7(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
+            //another-nums[i]=target;
             int sum = nums[i] + target;
             if (map.containsKey(sum)) {
                 int index = map.get(sum);
@@ -19,7 +20,7 @@ public class Solution {
                 pair[1] = i + 1;
                 return pair;
             }
-            
+            //nums[i]-another=target
             int diff = nums[i] - target;
             if (map.containsKey(diff)) {
                 int index = map.get(diff);
