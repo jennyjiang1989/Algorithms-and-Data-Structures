@@ -32,10 +32,10 @@ class Solution {
                 right--;
             }
         }
-
-        if (right >= k && start <= right)
+        //start right left end
+        if (right>=k && right>=start)
             return quickSelect(A, start, right, k);
-        else if (left <= k && left <= end)
+        else if (left<=k && left<=end)
             return quickSelect(A, left, end, k);
         else
             return A[k];
