@@ -10,14 +10,17 @@ public class Solution {
         if(nums==null||nums.length==0){
             return;
         }
-        int i=0;
-        for(int j=0;j<nums.length;j++){
-            if(nums[j]!=0){
-                int temp=nums[j];
-                nums[j]=nums[i];
-                nums[i]=temp;
-                i++;
+        int oldIndex=0;//老数组
+        int newIndex=0;//新数组
+        while(oldIndex<nums.length){
+            //非零元素往左移
+            if(nums[oldIndex]!=0){
+                int temp=nums[oldIndex];
+                nums[oldIndex]=nums[newIndex];
+                nums[newIndex]=temp;
+                newIndex++;
             }
+            oldIndex++;
         }
     }
 }
