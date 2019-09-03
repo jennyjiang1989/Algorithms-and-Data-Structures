@@ -1,5 +1,5 @@
 //Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? 
-//Find all unique triplets in the array which gives the sum of zero.
+//Find all unique(要去重) triplets in the array which gives the sum of zero.
 public class Solution {
     /**
      * @param numbers: Give an array numbers of n integer
@@ -13,7 +13,10 @@ public class Solution {
             return results;
         }
         Arrays.sort(numbers);
+        //1 2 3 4 -2 -3 -4 -5 length=8
+        //0 1 2 3  4  5(!)  6  7 
         for(int i=0;i<numbers.length-2;i++){
+            //去重
             if(i!=0&&numbers[i]==numbers[i-1]){
                 continue;
             }
@@ -73,6 +76,7 @@ public class Solution {
                 if(Math.abs(target-currentSum)<Math.abs(target-closestSum)){
                     closestSum=currentSum;
                 }
+                //先计算 再 比较移动
                 if(currentSum<target){
                     left++;
                 }else{
