@@ -16,13 +16,14 @@ public class Solution {
      */    
     public ListNode[] rehashing(ListNode[] hashTable) {
         // write your code here
-        if(hashTable.length<=0){
+        if(hashTable==null||hashTable.length==0){
             return hashTable;
         }
         int newCapacity=2*hashTable.length;
         ListNode[] newTable = new ListNode[newCapacity];
         for(int i=0;i<hashTable.length;i++){
             while(hashTable[i]!=null){
+                //rehashing
                 int newIndex=(hashTable[i].val+newCapacity)%newCapacity;
                 if(newTable[newIndex]==null){
                     newTable[newIndex]=new ListNode(hashTable[i].val);
