@@ -1,5 +1,6 @@
 //Given a string(Given in the way of char array) and an offset, rotate the string by offset in place. (rotate from left to right).
 //Input: str="abcdefg", offset = 3 Output: str = "efgabcd"	
+//三步反转法
 
 public class Solution {
     /**
