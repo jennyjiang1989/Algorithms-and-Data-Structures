@@ -29,3 +29,41 @@ public class Solution {
         return dp[A.length][m];
     }
 }
+//Given n items with size Ai, an integer m denotes the size of a backpack. How full you can fill this backpack?
+public class Solution {
+    /**
+     * @param m: An integer m denotes the size of a backpack
+     * @param A: Given n items with size A[i]
+     * @return: The maximum size
+     */
+    public int backPack(int m, int[] A) {
+        // write your code here
+        //能不能用前i个物品装下当前j的空间 0不能 1能
+        boolean dp[][]=new boolean[A.length+1][m+1];
+        //初始化
+        for(int i=0;i<=A.length;i++){
+            for(int j=0;j<=m;j++){
+                dp[i][j]=false;
+            }
+        }
+        dp[0][0]=true;
+        
+        for(int i=1;i<=A.length;i++){
+            for(int j=0;j<=m;j++){
+                //不装第i个物品
+                dp[i][j]=dp[i-1][j];
+                //装第i个物品
+                if(j>=A[i-1]&&dp[i-1][j-A[i-1]]){
+                    dp[i][j]=true;
+                }
+            }
+        }
+        for(int i=m;i>=0;i--){
+            if(dp[A.length][i]){
+                return i;
+            }
+        }
+        return 0;
+    }
+}
+
