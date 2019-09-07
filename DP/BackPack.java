@@ -90,6 +90,9 @@ public class Solution {
         return dp[n][target];
     }
 }
+//你总共有n 万元，希望申请国外的大学，要申请的话需要交一定的申请费用，给出每个大学的申请费用以及你得到这个大学offer的成功概率，大学的数量是 m。
+//如果经济条件允许，你可以申请多所大学。找到获得至少一份工作的最高可能性。
+//计算一个offer都收不到的概率，然后减掉。使用0-1背包来计算收到0个offer的最小概率。
 
 //完全背包
 //Given n kinds of items, and each kind of item has an infinite number available. The i-th item has size A[i] and value V[i].
