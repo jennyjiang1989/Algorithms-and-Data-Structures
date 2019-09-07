@@ -183,3 +183,35 @@ public class Solution {
         return dp[n][target];
     }
 }
+
+//Coin Change
+//You are given coins of different denominations and a total amount of money amount. 
+//Write a function to compute the fewest number of coins that you need to make up that amount. 
+//If that amount of money cannot be made up by any combination of the coins, return -1.
+public class Solution {
+    /**
+     * @param coins: a list of integer
+     * @param amount: a total amount of money amount
+     * @return: the fewest number of coins that you need to make up
+     */
+    public int coinChange(int[] coins, int amount) {
+        // write your code here
+        int n=coins.length;
+        //dp[i][j]表示使用前i个硬币，总金额为j时需要的最少硬币数量
+        int[] dp=new int[amount+1];
+        dp[0]=0;
+        for(int i=1;i<=amount;i++){
+            dp[i]=-1;
+        }
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<=amount;j++){
+                if(j>=coins[i-1]&&dp[j-coins[i-1]]!=-1){
+                    if(dp[j]==-1||dp[j-coins[i-1]]+1<dp[j]){
+                        dp[j]=dp[j-coins[i-1]]+1;
+                    }
+                }
+            }
+        }
+        return dp[amount];
+    }
+}
