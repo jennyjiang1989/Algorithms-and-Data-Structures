@@ -132,3 +132,27 @@ public class Solution {
         return dp[m];
     }
 }
+//You have a total of n yuan. Merchant has three merchandises and their prices are 150 yuan, 250 yuan and 350 yuan. 
+//And the number of these merchandises can be considered as infinite. 
+//After the purchase of goods need to be the remaining money to the businessman as a tip, finding the minimum tip for the merchant.
+public class Solution {
+    /**
+     * @param n: the money you have
+     * @return: the minimum money you have to give
+     */
+    public int backPackX(int n) {
+        // write your code here
+        int[] prices={150,250,350};
+        int[][] dp=new int[4][n+1];
+        for(int i=1;i<=3;i++){
+            for(int j=0;j<=n;j++){
+                dp[i][j]=dp[i-1][j];
+                if(j>=prices[i-1]){
+                    dp[i][j]=Math.max(dp[i][j],dp[i][j-prices[i-1]]+prices[i-1]);
+                }
+            }
+        }
+        int res=n-dp[3][n];
+        return res;
+    }
+}
