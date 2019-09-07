@@ -92,3 +92,36 @@ public class Solution {
         return dp[n][target];
     }
 }
+
+//Given n kinds of items, and each kind of item has an infinite number available. The i-th item has size A[i] and value V[i].
+//Also given a backpack with size m. What is the maximum value you can put into the backpack?
+public class Solution {
+    /**
+     * @param A: an integer array
+     * @param V: an integer array
+     * @param m: An integer
+     * @return: an array
+     */
+    public int backPackIII(int[] A, int[] V, int m) {
+        // write your code here
+        int[] AA=new int[10000];
+        int[] VV=new int[10000];
+        int n=0;
+        for(int i=0;i<A.length;i++){
+            int sum=m/A[i];
+            while(sum!=0){
+                AA[n]=A[i];
+                VV[n]=V[i];
+                n++;
+                sum--;
+            }
+        }
+        int[] dp=new int[m+1];
+        for(int i=0;i<n;i++){
+            for(int j=m;j>=AA[i];j--){
+                dp[j]=Math.max(dp[j],dp[j-AA[i]]+VV[i]);
+            }
+        }
+        return dp[m];
+    }
+}
