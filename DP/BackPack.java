@@ -93,6 +93,7 @@ public class Solution {
     }
 }
 
+//完全背包
 //Given n kinds of items, and each kind of item has an infinite number available. The i-th item has size A[i] and value V[i].
 //Also given a backpack with size m. What is the maximum value you can put into the backpack?
 public class Solution {
@@ -102,24 +103,33 @@ public class Solution {
      * @param m: An integer
      * @return: an array
      */
-    public int backPackIII(int[] A, int[] V, int m) {
+    //二维
+    public int backPackIII2(int[] A, int[] V, int m) {
         // write your code here
-        int[] AA=new int[10000];
-        int[] VV=new int[10000];
-        int n=0;
-        for(int i=0;i<A.length;i++){
-            int sum=m/A[i];
-            while(sum!=0){
-                AA[n]=A[i];
-                VV[n]=V[i];
-                n++;
-                sum--;
+        int n=A.length;
+        int[][] dp=new int[n+1][m+1];
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<=m;j++){
+                //不取i物品
+                dp[i][j]=dp[i-1][j];
+                //取i物品
+                if(j>=A[i-1]){
+                    dp[i][j]=Math.max(dp[i][j],dp[i][j-A[i-1]]+V[i-1]);
+                }
             }
         }
+        return dp[n][m];
+    }
+    //二维优化到一维
+    public int backPackIII(int[] A, int[] V, int m) {
+        // write your code here
+        int n=A.length;
         int[] dp=new int[m+1];
-        for(int i=0;i<n;i++){
-            for(int j=m;j>=AA[i];j--){
-                dp[j]=Math.max(dp[j],dp[j-AA[i]]+VV[i]);
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<=m;j++){
+                if(j>=A[i-1]){
+                    dp[j]=Math.max(dp[j],dp[j-A[i-1]]+V[i-1]);
+                }
             }
         }
         return dp[m];
