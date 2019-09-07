@@ -156,3 +156,29 @@ public class Solution {
         return res;
     }
 }
+//Given an integer array nums[] which contains n unique positive numbers, num[i] indicate the size of ith item. 
+//An integer target denotes the size of backpack. 
+//Find the number of ways to fill the backpack.
+//Each item may be chosen unlimited number of times
+public class Solution {
+    /**
+     * @param nums: an integer array and all positive numbers, no duplicates
+     * @param target: An integer
+     * @return: An integer
+     */
+    public int backPackIV(int[] nums, int target) {
+        // write your code here
+        int n=nums.length;
+        int[][] dp=new int[n+1][target+1];
+        dp[0][0]=1;
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<=target;j++){
+                dp[i][j]=dp[i-1][j];
+                if(j>=nums[i-1]){
+                    dp[i][j]+=dp[i][j-nums[i-1]];
+                }
+            }
+        }
+        return dp[n][target];
+    }
+}
