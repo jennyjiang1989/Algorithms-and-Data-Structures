@@ -13,16 +13,13 @@ public class Solution {
         // write your code here
         //dp[i][j]表示前i个物品，在容量为j的情况下，能取到的最大价值
         int[][] dp=new int[A.length+1][m+1];
-        for(int i=0;i<=A.length;i++){
+        for(int i=1;i<=A.length;i++){
             for(int j=0;j<=m;j++){
-                if(i==0||j==0){
-                    dp[i][j]=0;
-                //已经超过容量j
-                }else if(A[i-1]>j){
-                    dp[i][j]=dp[i-1][j];
-                }else{
-                    //不取第i个物体 与 取第i个物体 的最大值
-                    dp[i][j]=Math.max(dp[i-1][j],dp[i-1][j-A[i-1]]+V[i-1]);
+                //不取i物体
+                dp[i][j]=dp[i-1][j];
+                //取i物体
+                if(j>=A[i-1]){
+                    dp[i][j]=Math.max(dp[i][j],dp[i-1][j-A[i-1]]+V[i-1]);
                 }
             }
         }
