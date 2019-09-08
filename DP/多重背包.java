@@ -29,6 +29,8 @@ public class Solution {
 }
 
 //给一些不同价值和数量的硬币。找出这些硬币可以组合在1 ~ n范围内的值的数量
+//Input:  n = 5 value = [1,4] amount = [2,1] Output:  4
+//Explanation: They can combine 4 numbers which are 1,2,4,5.
 //在背包的过程中，当前考虑第i种面值，要记录组成j的时候使用了几个i，如果用超出数量个就不更新。
 public class Solution {
     /**
@@ -39,13 +41,16 @@ public class Solution {
      */
     public int backPackVIII(int n, int[] value, int[] amount) {
         // write your code here
-        int m = value.length;
+        int m = value.length;//物品种数
         boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
+        dp[0] = true;//0是肯定可以的
         int res = 0;
+        //对于每一种物品
         for(int i = 0;i < m;i++){
+            //组成j时用了几个i
             int[] cnt = new int[n + 1];
             for(int j = value[i];j <= n;j++){
+                //可以组成j - value[i]面值；当前j面值还没取到过; 还没用光i物品
                 if(dp[j - value[i]] && !dp[j] && cnt[j - value[i]] < amount[i]){
                     cnt[j] += cnt[j - value[i]] + 1;
                     res++;
