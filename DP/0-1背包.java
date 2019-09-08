@@ -14,11 +14,13 @@ public class Solution {
         // write your code here
         //dp[i][j]表示前i个物品，在容量为j的情况下，能取到的最大价值
         int[][] dp=new int[A.length+1][m+1];
+        //对于每一个物品
         for(int i=1;i<=A.length;i++){
+            //对于每一个容量
             for(int j=0;j<=m;j++){
                 //不取i物体
                 dp[i][j]=dp[i-1][j];
-                //取i物体
+                //取i物体 注意A跟V数组下标从0到A.length-1
                 if(j>=A[i-1]){
                     dp[i][j]=Math.max(dp[i][j],dp[i-1][j-A[i-1]]+V[i-1]);
                 }
