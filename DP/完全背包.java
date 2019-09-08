@@ -24,7 +24,7 @@ public class Solution {
         }
         return dp[n][m];
     }
-    //二维优化到一维
+    //二维优化到一维: 0-1背包一维用逆序；完全背包一维用正序
     public int backPackIII(int[] A, int[] V, int m) {
         // write your code here
         int n=A.length;
