@@ -1,5 +1,4 @@
 //假设你身上有 n 元，超市里有多种大米可以选择，每种大米都是袋装的，必须整袋购买，给出每种大米的重量，价格以及数量，求最多能买多少公斤的大米
-
 public class Solution {
     /**
      * @param n: the money of you
