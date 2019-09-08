@@ -132,4 +132,29 @@ public class Solution {
         return 1-dp[prices.length][n];
     }
 }
-//一维
+//一维  逆序枚举
+public class Solution {
+    /**
+     * @param n: Your money
+     * @param prices: Cost of each university application
+     * @param probability: Probability of getting the University's offer
+     * @return: the  highest probability
+     */
+    public double backpackIX(int n, int[] prices, double[] probability) {
+        // write your code here
+        //每一所大学拿不到offer的概率
+        for(int i=0;i<probability.length;i++){
+            probability[i]=1-probability[i];
+        }
+        double[] dp=new double[n+1];
+        for(int i=0;i<=n;i++){
+            dp[i]=1.0;
+        }
+        for(int i=0;i<prices.length;i++){
+            for(int j=n;j>=prices[i];j--){
+                dp[j]=Math.min(dp[j],dp[j-prices[i]]*probability[i]);
+            }
+        }
+        return 1-dp[n];
+    }
+}
