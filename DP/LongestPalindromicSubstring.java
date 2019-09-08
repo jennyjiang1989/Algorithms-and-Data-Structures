@@ -57,12 +57,13 @@ public class Solution {
         
         int start = 0, len = 0, longest = 0;
         for (int i = 0; i < s.length(); i++) {
+            //aabaa
             len = findLongestPalindromeFrom(s, i, i);
             if (len > longest) {
                 longest = len;
                 start = i - len / 2;
             }
-            
+            //abba
             len = findLongestPalindromeFrom(s, i, i + 1);
             if (len > longest) {
                 longest = len;
