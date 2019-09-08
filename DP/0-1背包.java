@@ -94,4 +94,42 @@ public class Solution {
 }
 //你总共有n 万元，希望申请国外的大学，要申请的话需要交一定的申请费用，给出每个大学的申请费用以及你得到这个大学offer的成功概率，大学的数量是 m。
 //如果经济条件允许，你可以申请多所大学。找到获得至少一份工作的最高可能性。
-//计算一个offer都收不到的概率，然后减掉。使用0-1背包来计算收到0个offer的最小概率。
+//idea: 使用0-1背包来计算收到0个offer的最小概率，然后答案就是1-收到0个offer的最小概率
+
+//二维
+public class Solution {
+    /**
+     * @param n: Your money
+     * @param prices: Cost of each university application
+     * @param probability: Probability of getting the University's offer
+     * @return: the  highest probability
+     */
+    public double backpackIX(int n, int[] prices, double[] probability) {
+        // write your code here
+        //每一所大学拿不到offer的概率
+        for(int i=0;i<probability.length;i++){
+            probability[i]=1-probability[i];
+        }
+        //dp[i][j]:用j千元申请前i所学校拿不到一个offer的最小概率
+        double[][] dp=new double[prices.length+1][n+1];
+        //初始化第一行第一列
+        for(int i=0;i<=prices.length;i++){
+            dp[i][0]=1.0;
+        }
+        for(int j=0;j<=n;j++){
+            dp[0][j]=1.0;
+        }
+        for(int i=1;i<=prices.length;i++){
+            for(int j=1;j<=n;j++){
+                //不申请第i所学校
+                dp[i][j]=dp[i-1][j];
+                //申请第i所学校
+                if(j>=prices[i-1]){
+                    dp[i][j]=Math.min(dp[i][j],dp[i-1][j-prices[i-1]]*probability[i-1]);
+                }
+            }
+        }
+        return 1-dp[prices.length][n];
+    }
+}
+//一维
