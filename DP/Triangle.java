@@ -23,9 +23,9 @@ public class Solution {
         //state:f[x][y] = minimum path value from 0,0 to x,y
         int n=triangle.length;
         int[][] f=new int[n][n]; 
+        //初始化f[0][0]
         f[0][0]=triangle[0][0];
-        
-        //initialize 三角形的左边没有左上；三角形的右边没有上
+        //三角形的左边没有左上；三角形的右边没有上
         for(int i=1;i<n;i++){
             f[i][0]=f[i-1][0]+triangle[i][0];
             f[i][i]=f[i-1][i-1]+triangle[i][i];
