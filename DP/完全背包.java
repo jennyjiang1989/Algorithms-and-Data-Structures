@@ -131,6 +131,30 @@ length   | 1   2   3   4   5   6   7   8
 price    | 1   5   8   9  10  17  17  20
 by cutting in two pieces of lengths 2 and 6
 */
+//二维
+public class Solution {
+    /**
+     * @param prices: the prices
+     * @param n: the length of rod
+     * @return: the max value
+     */
+    public int cutting(int[] prices, int n) {
+        // Write your code here
+        int[][] dp=new int[n+1][n+1];
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<=n;j++){
+                //不取i英寸
+                dp[i][j]=dp[i-1][j];
+                //取i英寸
+                if(j>=i){
+                    dp[i][j]=Math.max(dp[i][j],dp[i][j-i]+prices[i-1]);
+                }
+            }
+        }
+        return dp[n][n];
+    }
+}
+//一维
 public class Solution {
     /**
      * @param prices: the prices
@@ -142,8 +166,10 @@ public class Solution {
         //dp[i]表示前i英寸所能获得的最大价值。
         int[] dp=new int[n+1];
         for(int i=1;i<=n;i++){
-            for(int j=0;j<i;j++){
-                dp[i]=Math.max(dp[i],dp[j]+prices[i-j-1]);
+            for(int j=0;j<=n;j++){
+                if(j>=i){
+                    dp[j]=Math.max(dp[j],dp[j-i]+prices[i-1]);
+                }
             }
         }
         return dp[n];
