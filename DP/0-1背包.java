@@ -67,7 +67,7 @@ public class Solution {
     }
 }
 //Given n items with size nums[i] which an integer array and all positive numbers. An integer target denotes the size of a backpack. 
-//Find the number of possible fill the backpack.
+//Find the number of possible ways to fill the backpack.
 //Each item may only be used once
 public class Solution {
     /**
