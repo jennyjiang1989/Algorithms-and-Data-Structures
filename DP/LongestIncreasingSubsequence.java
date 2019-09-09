@@ -1,5 +1,6 @@
 //Given a sequence of integers, find the longest increasing subsequence (LIS).
 //You code should return the length of the LIS.
+//Input: [4,2,4,5,3,7]   Output: 4  Explanation: LIS is [2,4,5,7] 不一定连续
 
 public class Solution {
     /**
