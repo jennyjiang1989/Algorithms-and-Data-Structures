@@ -6,6 +6,7 @@ public class Solution {
      * @param n: An integer
      * @return: return a  integer as description.
      */
+    //O(nlogn)
     public int nthUglyNumber(int n) {
         PriorityQueue<Long> pq=new PriorityQueue<>();
         HashSet<Long> set=new HashSet<>();
