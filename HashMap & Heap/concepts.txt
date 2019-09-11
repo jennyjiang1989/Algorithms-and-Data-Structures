@@ -3,3 +3,8 @@ HashTable vs HashMap
 In contrast, HashMap is not thread safe and is only suitable for single-threaded environments. If you want to use HashMap in a multi threaded environment you can use ConcurrentHashMap.
 2. HashMap is faster than Hashtable due to the fact that Hashtable implicitly checks for synchronization on each method call even in a single thread environment.
 3. HashMap allows storing null values, while Hashtable doesn’t.
+
+HashMap
+O(1) Insert / O(1) Find / O(1) Delete
+Heap
+O(log N) Add / O(log N) Remove / O(1) Min or Max
