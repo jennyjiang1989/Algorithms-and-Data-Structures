@@ -46,7 +46,7 @@ public class MergeKSortedLists {
       }
       return dummy.next;
    }
-   //Heap
+   //Heap O(nlogk)
    private Comparator<ListNode> listNodeComparator=new Comparator<ListNode>(){
       public int compare(ListNode n1, ListNode n2){
          return n1.val-n2.val;
