@@ -37,6 +37,7 @@ public class Solution {
         while(!pq.isEmpty()){
             Element elem=pq.poll();
             ans[index++]=elem.val;
+            //如果有下一个
             if(elem.col+1<arrays[elem.row].length){
                 Element nextEle=new Element(elem.row,elem.col+1,arrays[elem.row][elem.col+1]);
                 pq.add(nextEle);
