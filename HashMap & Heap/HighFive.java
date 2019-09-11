@@ -30,7 +30,7 @@ public class Solution {
             if (pq.size() < 5) {
                 pq.add(r.score);
             } else {
-                if (pq.peek() < r.score){
+                if (pq.peek() < r.score){//最小堆
                     pq.poll();
                     pq.add(r.score);
                 }
