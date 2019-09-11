@@ -6,5 +6,8 @@ In contrast, HashMap is not thread safe and is only suitable for single-threaded
 
 HashMap
 O(1) Insert / O(1) Find / O(1) Delete
+
 Heap
 O(log N) Add / O(log N) Remove / O(1) Min or Max
+PriorityQueue 只支持O(log N)poll 不支持O(log N)删除任何元素
+TreeMap支持O(log N)删除
