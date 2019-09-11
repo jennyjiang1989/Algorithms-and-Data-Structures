@@ -20,7 +20,7 @@ public class Solution {
      */
     public Map<Integer, Double> highFive(Record[] results) {
         Map<Integer, Double> answer = new HashMap<Integer, Double>();
-        Map<Integer, PriorityQueue<Integer>> hash = new HashMap<Integer, PriorityQueue<Integer>>();
+        Map<Integer, PriorityQueue<Integer>> hash = new HashMap<Integer, PriorityQueue<Integer>>();//每一个student有一个priority queue
 
         for (Record r : results) {
             if (!hash.containsKey(r.id)){
