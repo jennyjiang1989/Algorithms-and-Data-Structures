@@ -23,7 +23,7 @@ public class Solution {
         if(arrays==null||arrays.length==0){
             return new int[0];
         }
-        PriorityQueue<Element> pq=new PriorityQueue<>(arrays.length,comparator);
+        PriorityQueue<Element> pq=new PriorityQueue<>(arrays.length,comparator);//不要忘记指明comparator!
         int total=0;
         for(int i=0;i<arrays.length;i++){
             if(arrays[i].length>0){
