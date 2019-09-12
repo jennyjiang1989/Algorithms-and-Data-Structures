@@ -47,12 +47,12 @@ public class Solution {
         int res = 0;
         //对于每一种物品
         for(int i = 0;i < m;i++){
-            //组成j时用了几个i
+            //标记组成j值时用了几个i
             int[] cnt = new int[n + 1];
             for(int j = value[i];j <= n;j++){
-                //可以组成j - value[i]面值；当前j面值还没取到过; 还没用光i物品
+                //1.可以组成j - value[i]面值；2.当前j面值还没取到过; 3.还没用光i物品
                 if(dp[j - value[i]] && !dp[j] && cnt[j - value[i]] < amount[i]){
-                    cnt[j] += cnt[j - value[i]] + 1;
+                    cnt[j] += cnt[j - value[i]] + 1;//标记
                     res++;
                     dp[j] = true;
                 }
