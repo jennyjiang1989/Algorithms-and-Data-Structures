@@ -55,3 +55,8 @@ class Solution {
         return coor.x>=0 && coor.x<n && coor.y>=0 && coor.y<m;
     }
 }
+
+//Given a boolean 2D matrix, 0 is represented as the sea, 1 is represented as the island. If two 1 is adjacent, we consider them in the same island. 
+//We only consider up/down/left/right adjacent. Find the number of islands that size bigger or equal than K.
+
+https://www.jiuzhang.com/solution/number-of-big-islands/
