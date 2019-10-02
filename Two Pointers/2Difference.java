@@ -9,7 +9,7 @@ public class Solution {
      * @return: [index1 + 1, index2 + 1] (index1 < index2)
      */
     public int[] twoSum7(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();//value -> index
         for (int i = 0; i < nums.length; i++) {
             //another-nums[i]=target;
             int sum = nums[i] + target;
