@@ -104,7 +104,7 @@ public class countPairs {
 		int count2=count2(A,k);
 		System.out.println(count2);
 	}
-	//Time Complexity: O(n)
+    //Time Complexity: O(n)
     public static int count1(int[] A, int k){
     	int count=0;
     	HashSet<Integer> set=new HashSet<>();//1,2,4,5,7
@@ -128,7 +128,7 @@ public class countPairs {
     public static int count2(int[] A, int k){
     	int count=0;
     	Arrays.sort(A);// 1 1 2 4 5
-    	int i=0,j=0;
+    	int i=0,j=0;//同向双指针
     	while(i<=j && j<A.length){
     		if(A[j]-A[i]==k){
     			count++;
