@@ -92,3 +92,54 @@ public class Solution {
         return indexs;
     }
 }
+
+//Given an integer array and a positive integer k, count all distinct pairs with difference equal to k.
+import java.util.*;
+public class countPairs {
+	public static void main(String[] args){
+		int[] A={1,5,4,1,2,7};
+		int k=3;
+		int count1=count1(A,k);
+		System.out.println(count1);
+		int count2=count2(A,k);
+		System.out.println(count2);
+	}
+	//Time Complexity: O(n)
+    public static int count1(int[] A, int k){
+    	int count=0;
+    	HashSet<Integer> set=new HashSet<>();//1,2,4,5,7
+    	for(int i=0;i<A.length;i++){
+    		set.add(A[i]);
+    	}
+    	for(int i=0;i<A.length;i++){
+    		int smaller=A[i]-k;
+    		if(set.contains(smaller)){
+    			count++;
+    		}
+    		int bigger=A[i]+k;
+    		if(set.contains(bigger)){
+    			count++;
+    		}
+    		set.remove(A[i]);
+    	}
+    	return count;
+    }
+    //Time Complexity: O(nlogn)
+    public static int count2(int[] A, int k){
+    	int count=0;
+    	Arrays.sort(A);// 1 1 2 4 5
+    	int i=0,j=0;
+    	while(i<=j && j<A.length){
+    		if(A[j]-A[i]==k){
+    			count++;
+    			i++;
+    			j++;
+    		}else if(A[j]-A[i]<k){
+    			j++;
+    		}else{
+    			i++;
+    		}
+    	}
+    	return count;
+    }
+}
