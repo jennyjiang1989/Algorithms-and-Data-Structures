@@ -37,12 +37,13 @@ public class Solution {
 }
 
 //2 pointers
-class Pair {
-    public int idx, num;
-    public Pair(int i, int n) {
-        this.idx = i;
-        this.num = n;
-    }
+class Pair{
+	public int index;
+	public int value;
+	public Pair(int index, int value){
+		this.index=index;
+		this.value=value;
+	}
 }
 
 public class Solution {
