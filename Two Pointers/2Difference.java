@@ -122,7 +122,7 @@ public class countPairs {
     //Time Complexity: O(nlogn)
     public static int count2(int[] A, int k){
     	int count=0;
-    	Arrays.sort(A);// 1 1 2 4 5
+    	Arrays.sort(A);// 1 1 2 2 4 4 5 5
     	int i=0,j=0;//同向双指针
     	while(i<=j && j<A.length){
     		if(A[j]-A[i]==k){
