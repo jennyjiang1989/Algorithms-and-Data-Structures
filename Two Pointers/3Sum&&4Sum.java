@@ -88,6 +88,7 @@ public class Solution {
     }
 }
 
+//4sum
 //Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target?
 //Find all unique quadruplets in the array which gives the sum of target.
 //固定两个点，然后用双指针的做法，扫描一下后续数组，记录答案即可。
