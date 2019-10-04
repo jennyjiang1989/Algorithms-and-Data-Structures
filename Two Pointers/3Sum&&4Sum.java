@@ -38,6 +38,7 @@ public class Solution {
                 results.add(oneResult);
                 start++;
                 end--;
+		//去重
                 while(start<end&&numbers[start]==numbers[start-1]){
                     start++;
                 }
@@ -99,12 +100,12 @@ public class Solution {
 		Arrays.sort(num);
 
 		for (int i = 0; i < num.length - 3; i++) {
-            //去重
+                        //去重
 			if (i != 0 && num[i] == num[i - 1]) {
 				continue;
 			}
 			for (int j = i + 1; j < num.length - 2; j++) {
-                //去重
+                                //去重
 				if (j != i + 1 && num[j] == num[j - 1])
 					continue;
 
@@ -125,7 +126,7 @@ public class Solution {
 						rst.add(tmp);
 						left++;
 						right--;
-                        //去重
+                                                //去重
 						while (left < right && num[left] == num[left - 1]) {
 							left++;
 						}
