@@ -6,7 +6,6 @@ public class Solution {
      * @param S: A list of integers
      * @return: An integer
      */
-    //a+b>c
     public int triangleCount(int[] S) {
         // write your code here
         if(S==null||S.length<3){
@@ -14,14 +13,13 @@ public class Solution {
         }
         Arrays.sort(S);
         int count=0;
-        //1 2 3 4 3
-        //三角形：两边之和大于第三边
         for(int i=2;i<S.length;i++){
             int start=0;
             int end=i-1;
             while(start<end){
                 if(S[start]+S[end]>S[i]){
                     count=count+end-start;
+                    end--;
                 }else{
                     start++;
                 }
