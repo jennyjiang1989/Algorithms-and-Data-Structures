@@ -20,13 +20,13 @@ public class LRUCache {
     }
 
     private int capacity;
-    private HashMap<Integer, Node> hs = new HashMap<Integer, Node>();
+    private HashMap<Integer, Node> hs = new HashMap<Integer, Node>();//key->Node
     private Node head = new Node(-1, -1);
     private Node tail = new Node(-1, -1);
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
-        tail.prev = head;
+        tail.prev = head;//开始只有head tail
         head.next = tail;
     }
 
@@ -36,7 +36,7 @@ public class LRUCache {
             return -1;
         }
 
-        // remove current
+        //remove current node from doubly linked list
         Node current = hs.get(key);
         current.prev.next = current.next;
         current.next.prev = current.prev;
@@ -45,7 +45,7 @@ public class LRUCache {
 	//每次get，使用次数+1，最近使用，放于尾部
         move_to_tail(current);			
 
-        return hs.get(key).value;
+        return current.value;
     }
     //数据放入缓存
     public void set(int key, int value) {			
@@ -56,14 +56,17 @@ public class LRUCache {
         }
         //超出缓存上限
         if (hs.size() == capacity) {
-	    //删除头部数据
-            hs.remove(head.next.key);		
+	    //从hashmap中删除第一个node
+            hs.remove(head.next.key);	
+            //从doubly linked list中删除第一个node
             head.next = head.next.next;
             head.next.prev = head;
         }
 
-        Node insert = new Node(key, value);		
+        Node insert = new Node(key, value);	
+        //放入hashmap中
         hs.put(key, insert);
+	//放入doubly linked list最后
         move_to_tail(insert);					
     }
     //移动数据至尾部
