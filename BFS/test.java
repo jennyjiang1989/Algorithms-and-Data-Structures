@@ -1,6 +1,4 @@
 https://upload.wikimedia.org/wikipedia/commons/f/f7/Binary_tree.svg
-hello
-hello
 
 class TreeNode{
     int val;
