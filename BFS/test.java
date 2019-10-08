@@ -22,7 +22,7 @@ public List<Integer> traverse(TreeNode root){
         int size=queue.size();
         List<TreeNode> currentLevel=new ArrayList<>();
         for(int i=0;i<size;i++){
-            TreeNode head=queue.pop();
+            TreeNode head=queue.poll();
             currentLevel.add(head.val);
             if(head.left!=null){
                 queue.offer(head.left);
