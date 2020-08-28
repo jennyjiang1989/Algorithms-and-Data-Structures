@@ -14,10 +14,10 @@
  */
 class ResultType{
     public boolean isBalanced;
-    public int maxDepth;
-    public ResultType(boolean isBalanced, int maxDepth){
+    public int depth;
+    public ResultType(boolean isBalanced, int depth){
         this.isBalanced=isBalanced;
-        this.maxDepth=maxDepth;
+        this.depth=depth;
     }
 }
 
@@ -38,16 +38,16 @@ public class Solution {
         }
         ResultType left=helper(root.left);
         ResultType right=helper(root.right);
-        int maxDepth=Math.max(left.maxDepth,right.maxDepth)+1;
+        int depth=Math.max(left.depth,right.depth)+1;
         
         //subtree not balance
         if(left.isBalanced==false||right.isBalanced==false){
             return new ResultType(false,-1);
         }
         //root not balance
-        if(Math.abs(left.maxDepth-right.maxDepth)>1){
+        if(Math.abs(left.depth-right.depth)>1){
             return new ResultType(false,-1);
         }
-        return new ResultType(true,maxDepth);
+        return new ResultType(true,depth);
     }
 }
